@@ -1,0 +1,10 @@
+footer {
+  background-color: var(--light-color);
+}
+
+
+
+hr {
+  border-top: 1.9px solid #969292;
+  opacity: .25;
+}

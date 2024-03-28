@@ -1,0 +1,37 @@
+<app-spinner></app-spinner>
+
+
+<section class="w-75 mx-auto bg-main-light p-3 rounded-3 my-2">
+  <h1 class="text-capitalize">shop cart</h1>
+  <h3 class="h6 text-main">total price: {{ productIncart.totalCartPrice | currency: ' EGP ' }} </h3>
+  <div class="row border-bottom-2 border py-3" *ngFor=" let cartDetails of productIncart.products ">
+    <div class="col-md-1">
+      <div class="">
+        <!-- images -->
+        <img [src]=" cartDetails.product.imageCover " class="w-100" alt="">
+      </div>
+    </div>
+    <div class="col-md-11">
+      <!-- details -->
+      <div class="pt-3 d-flex align-items-center justify-content-between">
+
+        <div class="">
+          <h3 class="h6 fw-normal">{{cartDetails.product.title}} </h3>
+          <p class="text-main">price: {{cartDetails.price}} </p>
+          <button class="border-0" (click)="removeFromCart(cartDetails.product._id)"><i
+              class="fas fa-trash-can text-main"></i>
+            Remove</button>
+        </div>
+        <div class="">
+          <button class="btn border border-success"
+            (click)="updateQuantity(cartDetails.product._id, cartDetails.count + 1)">+</button>
+          <span> {{cartDetails.count}} </span>
+          <button (click)="updateQuantity(cartDetails.product._id, cartDetails.count - 1)"
+            class="btn border border-success">-</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="btn-main mt-2 py-1" [routerLink]="['/payment', productIncart._id]">Payment Now <img
+      src="./assets/images/visa-1.svg" alt=""></button>
+</section>

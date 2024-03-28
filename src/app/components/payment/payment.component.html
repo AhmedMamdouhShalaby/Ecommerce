@@ -1,0 +1,29 @@
+<app-spinner></app-spinner>
+
+
+<section class="w-50 mx-auto bg-main-light my-5 rounded-3">
+
+  <form [formGroup]="checkUserDetails" class="p-5" (ngSubmit)=" handleForm() ">
+    <div class="inpParent my-2">
+      <label for="name">name:</label>
+      <input type="text" formControlName="name" id="name" class="form-control">
+
+    </div>
+    <div class="inpParent  my-2">
+      <label for="details">details:</label>
+      <textarea type="text" formControlName="details" id="details" class="form-control"></textarea>
+
+    </div>
+    <div class="inpParent  my-2">
+      <label for="phone">phone:</label>
+      <input type="tel" formControlName="phone" id="phone" class="form-control">
+
+    </div>
+    <div class="inpParent  my-2">
+      <label for="city">city:</label>
+      <input type="text" formControlName="city" id="city" class="form-control">
+
+    </div>
+    <button class="btn-main">checkOut</button>
+  </form>
+</section>

@@ -1,0 +1,17 @@
+<app-spinner></app-spinner>
+
+<section class=" bg-main-light p-3 rounded-3 my-2">
+  <h1 class="text-capitalize">shop cart</h1>
+  <div class="row border-bottom-2 border py-3 ">
+
+    <div class="col-md-4" *ngFor=" let product of products; let i = index">
+
+      <!-- images -->
+      <img class="my-2" [src]="      product.cartItems[i].product.imageCover" alt="">
+      <h3 class="h6 my-2 fw-normal text-main">{{product.cartItems[i].product.title}}</h3>
+      <h3 class="h6 my-2 text-main ">total price: {{product.cartItems[i].price | currency: ' EGP '}}</h3>
+
+    </div>
+  </div>
+
+</section>

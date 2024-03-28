@@ -1,0 +1,77 @@
+<!-- main slider -->
+
+
+<app-spinner></app-spinner>
+<section class="m-4">
+  <div class="row g-0">
+    <div class="col-md-8 ">
+      <owl-carousel-o [options]="HeaderSliderOptions">
+        <ng-template carouselSlide>
+          <img src="./assets/images/main-slider-1.jpeg" height="500" class="w-100" alt="">
+        </ng-template>
+        <ng-template carouselSlide>
+          <img src="./assets/images/main-slider-2.jpeg" height="500" class="w-100" alt="">
+        </ng-template>
+        <ng-template carouselSlide>
+          <img src="./assets/images/main-slider-3.jpeg" height="500" class="w-100" alt="">
+        </ng-template>
+      </owl-carousel-o>
+    </div>
+    <div class="col-md-4">
+      <div class="d-flex flex-column">
+        <img src="./assets/images/slide-1.jpeg" height="250" class="w-100" alt="">
+        <img src="./assets/images/slide-2.jpeg" height="250" class="w-100" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="my-4">
+
+  <h2 class="text-capitalize py-4">Shop Popular Categories</h2>
+
+
+  <owl-carousel-o [options]=" categoriesSliderOptions ">
+
+    <ng-container *ngFor="let category of categories">
+      <ng-template carouselSlide>
+        <div>
+          <img [src]=" category.image " height=" 270 " [alt]=" category.name ">
+          <h3 class="text-main h5 mt-2"> {{category.name}} </h3>
+        </div>
+      </ng-template>
+    </ng-container>
+
+  </owl-carousel-o>
+
+</section>
+<!-- categories -->
+<section class="py-5">
+  <div class="px-5 mb-3">
+    <input type="text" [(ngModel)]=" searchTerm" class="form-control" placeholder="search....">
+  </div>
+  <div class="row g-4">
+    <div class="col-md-2" *ngFor=" let product of products.slice(0,20) | search:searchTerm">
+      <div class="product">
+        <div *ngIf=" !dataIds.includes(product._id) " (click)=" addToFav(product._id) "> <i
+            class="fa-regular fa-heart text-main text-danger  heart"></i>
+        </div>
+        <div *ngIf=" dataIds.includes(product._id) " (click)=" removeitem(product._id) "> <i
+            class="fa-solid fa-2x fa-heart text-main text-danger heartadded"></i>
+        </div>
+        <div class=" p-2" [routerLink]="['/details', product._id]"><img [src]=" product.imageCover " class="w-100 mb-2"
+            alt="">
+          <h3 class="h6"> {{product.category.name}} </h3>
+          <h4 class="h6 mb-4"> {{product.title | by:2}} </h4>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="text-main">{{product.price | currency: ' EGP '}}</span>
+            <div class="mb-2"><i class="fas fa-star rating-color"></i><span
+                class="text-muted">{{product.ratingsAverage}}</span></div>
+          </div>
+        </div>
+
+        <button class="btn-main w-100" (click)=" AddCart( product._id) ">Add Product</button>
+      </div>
+    </div>
+  </div>
+</section>

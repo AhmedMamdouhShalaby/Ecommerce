@@ -1,0 +1,34 @@
+<app-spinner></app-spinner>
+
+<section>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="p-5">
+
+        <owl-carousel-o class="w-100 d-flex justify-content-center align-items-center" [options]=" productsSlider ">
+
+          <ng-container class="w-100" *ngFor="let item of productDetails.images">
+            <ng-template class="w-100" carouselSlide>
+              <img [src]="item" class="w-100">
+            </ng-template>
+          </ng-container>
+
+        </owl-carousel-o>
+
+
+      </div>
+    </div>
+    <div class="col-md-8 d-flex flex-column justify-content-center align-items-center">
+      <div class="p-5">
+        <h3 class="h5">{{productDetails.title}}</h3>
+        <h4 class="text-muted py-4 px-3">{{productDetails.description}}</h4>
+        <span> {{productDetails.category.name}} </span>
+        <div class="py-2 d-flex justify-content-between align-items-center">
+          <div class=""><span> {{productDetails.price}} EGP</span></div>
+          <div class=""><span><i class="fas fa-star rating-color"></i> {{productDetails.ratingsAverage}} </span></div>
+        </div>
+        <button class="btn-main w-100" (click)=" addCart(productDetails.id) ">+ Add To Card</button>
+      </div>
+    </div>
+  </div>
+</section>

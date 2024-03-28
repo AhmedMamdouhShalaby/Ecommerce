@@ -1,0 +1,78 @@
+<nav #navBar class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="home"><img src="./assets/images/freshcart-logo.svg" alt=""></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link text-capitalize" routerLinkActive="active-link" routerLink="home">home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-capitalize" routerLinkActive="active-link" routerLink="products">products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-capitalize" routerLinkActive="active-link" routerLink="categories">categories</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-capitalize" routerLinkActive="active-link" routerLink="brands">brands</a>
+        </li>
+
+      </ul>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="dropdown nav-item">
+          <a aria-expanded="false" data-bs-toggle="dropdown" role="button" class="nav-link dropdown-toggle">
+            <i class="fas fa-user fa-xl text-main"></i> <!-- User icon -->
+          </a>
+          <ul class="dropdown-menu">
+            <!-- Dropdown menu items -->
+            <li class="nav-link forgetpassword text-capitalize" role="button" routerLink="forgetpassword">
+              <a class="dropdown-item text-white">Forget Password</a> <!-- Forget Password item -->
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item cursor-pointer" routerLink="/whishlist">
+          <a class="nav-link position-relative"> <i class="fa-solid fa-heart  fa-2x text-danger"></i>
+            <span class="badge bg-info position-absolute top-0 end-0">
+              {{favCount}}
+            </span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link position-relative" routerLink="cart"> <i class="fas fa-cart-shopping fa-2x text-main"></i>
+            <span class="badge bg-info position-absolute top-0 end-0">
+              {{cartCount}}
+            </span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link"> <i class="fab fa-instagram"></i> </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"><i class="fab fa-facebook"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"><i class="fab fa-tiktok"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"><i class="fab fa-twitter"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"><i class="fab fa-linkedin"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"><i class="fab fa-youtube"></i></a>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link text-capitalize cursor-pointer" (click)=" logOut() ">sign out</span>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
